@@ -30,7 +30,6 @@ public class DropWepon : Wepon
         if(other.CompareTag("Player"))
         {
             ActiveToolTip();   
-            Debug.Log("!!");
             if(Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("F");

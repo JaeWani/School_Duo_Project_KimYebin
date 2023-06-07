@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a131eb896751cd45b97ca963398a8e0, type: 3}
-  m_Name: BlueGun
+  m_Name: RedGun
   m_EditorClassIdentifier: 
-  Name: "\uCD08\uB85D \uCD1D"
-  info: "\uCD08\uB85D\uC0C9 \uCD1D\uC785\uB2C8\uB2E4,"
-  Prefabs: {fileID: 6242684813013168381, guid: fec1778de0882a64abb4b961cdac0ec6, type: 3}
-  Kind: 1
+  Name: "\uBE68\uAC04 \uCD1D"
+  info: "\uBE68\uAC04\uC0C9 \uCD1D\uC785\uB2C8\uB2E4."
+  DropPrefab: {fileID: 1695369691637648554, guid: 3433cae2309a1bc45a0d3611a85cf8fa, type: 3}
+  WeponPrefab: {fileID: 4548691177597912108, guid: 9d27d7c9b7be14f4383cf1c14aa548e9, type: 3}
+  Kind: 0

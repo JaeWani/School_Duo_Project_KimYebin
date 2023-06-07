@@ -5,7 +5,7 @@ using System;
 
 public class UseWepon : Wepon
 {
-    [Header ("Kind")]
+    [Header("Kind")]
     [SerializeField] private WeponKind weponKind;
     [Header("Stat")]
     public float Damage;
@@ -19,24 +19,26 @@ public class UseWepon : Wepon
     protected Action AttackAction;
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         AttackDelay();
         Attack();
     }
-    
+
     public virtual void Attack()
     {
         if (CanAttack == true)
         {
-            if (Input.GetKey(KeyCode.Z))
+            if (transform.parent.name == "Wepon Slot")
             {
-                AttackAction();
-                CanAttack = false;
+                if (Input.GetKey(KeyCode.Z))
+                {
+                    AttackAction();
+                    CanAttack = false;
+                }
             }
         }
     }

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\uCD08\uB85D \uCD1D"
   info: "\uCD08\uB85D\uC0C9 \uCD1D\uC785\uB2C8\uB2E4,"
-  Prefabs: {fileID: 1695369691637648554, guid: 583a7cd9f5b13ec45bf4477cb1fb2952, type: 3}
+  DropPrefab: {fileID: 1695369691637648554, guid: 583a7cd9f5b13ec45bf4477cb1fb2952, type: 3}
+  WeponPrefab: {fileID: 329555678884546655, guid: eb73a1597bd60c040a9839144cdf6ace, type: 3}
   Kind: 0

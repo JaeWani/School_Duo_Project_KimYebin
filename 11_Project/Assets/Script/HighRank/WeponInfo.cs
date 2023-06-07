@@ -7,6 +7,7 @@ public class WeponInfo : ScriptableObject
 {
     public string Name;
     public string info;
-    public GameObject Prefabs;
+    public GameObject DropPrefab;
+    public GameObject WeponPrefab;
     public WeponKind Kind;
 }

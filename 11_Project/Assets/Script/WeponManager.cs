@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeponManager : MonoBehaviour
 {
+    public List<WeponInfo> weponInfos;
+
     public static WeponManager instance;
     private void Awake() {
         if(instance == null)
@@ -12,11 +14,15 @@ public class WeponManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        GetWeponInfo("Weponkind");
     }
-
+    private void GetWeponInfo(string path)
+    {
+        WeponInfo[] infos = Resources.LoadAll<WeponInfo>(path);
+        weponInfos = new List<WeponInfo>(infos);
+    }
     public void AddWepon()
     {
-
 
     }
 }
