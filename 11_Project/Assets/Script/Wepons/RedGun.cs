@@ -30,5 +30,6 @@ public class RedGun : UseWepon
         var obj =  Instantiate(BulletPrefab, transform.position, Quaternion.identity);
         var bullet = obj.GetComponent<Bullet>();
         bullet.vec = vec;
+        bullet.Damage = player.Damage;
     }
 }

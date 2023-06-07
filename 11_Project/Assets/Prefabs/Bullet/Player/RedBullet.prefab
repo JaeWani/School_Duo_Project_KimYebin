@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8542686142859231765}
   m_Layer: 0
   m_Name: RedBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vec: {x: 0, y: 0}
+  bulletType: 1
   BulletSpeed: 10
+  Damage: 0
 --- !u!50 &7473938536196790469
 Rigidbody2D:
   serializedVersion: 4

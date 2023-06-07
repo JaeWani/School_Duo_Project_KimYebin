@@ -9,6 +9,7 @@ public class UseWepon : Wepon
     [SerializeField] private WeponKind weponKind;
     [Header("Stat")]
     public float Damage;
+    public Type WeponType;
 
     [Header("State")]
     [SerializeField] protected bool CanAttack = true;

@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weponKind: 0
   Damage: 10
+  WeponType: 2
   CanAttack: 1
   curDealy: 0
   Delay: 0.2

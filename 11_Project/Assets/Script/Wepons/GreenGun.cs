@@ -6,7 +6,7 @@ public class GreenGun : UseWepon
 {
     public Player player;
     [SerializeField] GameObject BulletPrefab;
-
+    
 
     private void Start() 
     {
@@ -30,5 +30,6 @@ public class GreenGun : UseWepon
         var obj =  Instantiate(BulletPrefab, transform.position, Quaternion.identity);
         var bullet = obj.GetComponent<Bullet>();
         bullet.vec = vec;
+        bullet.Damage = player.Damage;
     }
 }

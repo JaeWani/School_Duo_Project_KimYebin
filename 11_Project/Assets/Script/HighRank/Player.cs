@@ -22,8 +22,10 @@ public class Player : MonoBehaviour
     public Direction direction = Direction.Right;
 
     [Header("Stat")]
+    public Type PlayerType;
     public float Speed;
     public float JumpPower;
+    public int Damage;
     [SerializeField] Vector2 groundCastOffset;
     [SerializeField] Vector2 groundCastSize;
     public bool CanJump = true;
@@ -40,8 +42,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        GetWepon();
         RB = GetComponent<Rigidbody2D>();
+        GetWepon();
     }
     private void Update()
     {

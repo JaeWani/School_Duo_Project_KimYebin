@@ -5,9 +5,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Vector2 vec;
-
+    public Type bulletType;
     Rigidbody2D RB;
     [SerializeField] float BulletSpeed = 10;
+    public int Damage;
     private void Start() 
     {
         RB = GetComponent<Rigidbody2D>();
@@ -20,5 +21,12 @@ public class Bullet : MonoBehaviour
     void Move(Vector2 vec)
     {
         RB.velocity = vec * BulletSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
