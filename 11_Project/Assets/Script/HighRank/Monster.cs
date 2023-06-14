@@ -1,54 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
     [Header("Stat")]
     public Type MonsterType;
+    [SerializeField] public int MaxHP;
+    [SerializeField] public int HP;
 
-    [SerializeField] private int hp;
-    public int HP
-    {
-        get
-        {
-            return hp;
-        }
-        set
-        {
-            hp = value;
-            Dead();
-            SetHpBar();
-        }
-    }
-    [Header("UI")]
-    [SerializeField] GameObject HPBar;
+    [Header("HPBar")]
+    [SerializeField] GameObject HPBarPrefabs;
+    [SerializeField] private Canvas HPCanvas;
+    [SerializeField] private Slider HPSlider;
+    [SerializeField] private MonsterHPBar HPBar;
     void Start()
     {
-
+        HP = MaxHP;
+        CreatHPBar();
     }
 
     void Update()
     {
-
+        UpdateHPBar();
+        Dead();
     }
     void Dead()
     {
-        Debug.Log("프로퍼티");
-        if (hp <= 0)
+        if (HP <= 0)
         {
+            Destroy(HPSlider.gameObject);
             Destroy(gameObject);
         }
-    }
-    void SetHpBar()
-    {
-        float x = HPBar.transform.localScale.x;
-        float y = HPBar.transform.localScale.y - ((float)(hp / 100f) * HPBar.transform.localScale.y);
-        HPBar.transform.localScale = new Vector3(x,y,0);
     }
     void Hit(int damage)
     {
         HP -= damage;
+    }
+    private void CreatHPBar()
+    {
+        HPCanvas = GameObject.Find("HPCanvas").GetComponent<Canvas>();
+        var HPBar = Instantiate(HPBarPrefabs, HPCanvas.transform);
+        HPSlider = HPBar.GetComponent<Slider>();
+    }
+    private void UpdateHPBar()
+    {
+        HPBar = HPSlider.GetComponent<MonsterHPBar>();
+        HPBar.TargetPos = transform;
+        HPBar.Offset = new Vector3(0,1,0);
+
+        HPSlider.value = Mathf.Lerp(HPSlider.value, ((float)HP / (float)MaxHP), Time.deltaTime * 10);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
