@@ -15,18 +15,18 @@ public class Monster : MonoBehaviour
     [SerializeField] private Canvas HPCanvas;
     [SerializeField] private Slider HPSlider;
     [SerializeField] private MonsterHPBar HPBar;
-    void Start()
+    protected virtual void Start()
     {
         HP = MaxHP;
         CreatHPBar();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         UpdateHPBar();
         Dead();
     }
-    void Dead()
+    protected virtual void Dead()
     {
         if (HP <= 0)
         {
@@ -48,7 +48,7 @@ public class Monster : MonoBehaviour
     {
         HPBar = HPSlider.GetComponent<MonsterHPBar>();
         HPBar.TargetPos = transform;
-        HPBar.Offset = new Vector3(0,1,0);
+        HPBar.Offset = new Vector3(0, 1, 0);
 
         HPSlider.value = Mathf.Lerp(HPSlider.value, ((float)HP / (float)MaxHP), Time.deltaTime * 10);
     }
