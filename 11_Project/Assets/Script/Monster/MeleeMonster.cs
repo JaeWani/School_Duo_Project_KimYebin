@@ -10,6 +10,7 @@ public class MeleeMonster : Monster
     public float MoveSpeed;
     protected override void Start()
     {
+        Target = GameObject.Find("Player");
         base.Start();
     }
 

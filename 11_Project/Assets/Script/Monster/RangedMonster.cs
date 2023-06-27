@@ -17,6 +17,7 @@ public class RangedMonster : Monster
 
     protected override void Start()
     {
+        Target = GameObject.Find("Player");
         base.Start();
     }
 

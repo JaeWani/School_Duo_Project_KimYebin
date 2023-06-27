@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class BackGround : MonoBehaviour
 {
-    private float lenght, startpos;
+    private enum BackGround_Kind
+    {
+        Sub_BackGround,
+        Main_BackGround
+    }
+    [SerializeField] BackGround_Kind Kind;
+    float lenght, startpos;
     public GameObject cam;
+    public GameObject player;
     public float parallaxEffect;
     void Start()
     {
         startpos = transform.position.x;
         lenght = GetComponent<SpriteRenderer>().bounds.size.x;
+        player = GameObject.Find("Player");
     }
 
     void Update()
     {
-        float temp = (cam.transform.position.x * (1- parallaxEffect));
-        float dist = (cam.transform.position.x * parallaxEffect);
+        SetBackGround();
+    }
+    void SetBackGround()
+    {
+        if (Kind == BackGround_Kind.Sub_BackGround)
+        {
+            float temp = (cam.transform.position.x * (1 - parallaxEffect));
+            float dist = (cam.transform.position.x * parallaxEffect);
 
-        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
+            transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
+        }
+        else if (Kind == BackGround_Kind.Main_BackGround)
+        {
+            transform.position = player.transform.position;
+        }
     }
 }
